@@ -16,5 +16,11 @@ namespace MyApp
         {
             InitializeComponent();
         }
+
+        private void btnProceso_Click(object sender, EventArgs e)
+        {
+            string nombre = txtNombre.Text;
+            MessageBox.Show(nombre);
+        }
     }
 }
