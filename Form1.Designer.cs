@@ -35,7 +35,7 @@
             // 
             // btnProceso
             // 
-            this.btnProceso.Location = new System.Drawing.Point(83, 103);
+            this.btnProceso.Location = new System.Drawing.Point(275, 32);
             this.btnProceso.Name = "btnProceso";
             this.btnProceso.Size = new System.Drawing.Size(201, 55);
             this.btnProceso.TabIndex = 0;
@@ -45,7 +45,7 @@
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(83, 38);
+            this.txtNombre.Location = new System.Drawing.Point(41, 46);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(201, 26);
             this.txtNombre.TabIndex = 1;
@@ -53,7 +53,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(79, 15);
+            this.label1.Location = new System.Drawing.Point(37, 23);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(65, 20);
             this.label1.TabIndex = 2;
@@ -63,7 +63,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(361, 196);
+            this.ClientSize = new System.Drawing.Size(557, 103);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.btnProceso);
