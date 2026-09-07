@@ -13,9 +13,27 @@ namespace MyApp
     public partial class Form1 : Form
     {
         int contador = 0,minutos=0;
+        bool bandera=false;
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void btnEncender_Click(object sender, EventArgs e)
+        {
+            if (bandera == false)
+            {
+                bandera = true;
+                tmrReloj.Enabled = true;
+                btnEncender.Text = "Apagar";
+            }
+            else
+            {
+                bandera = false;
+                tmrReloj.Enabled = false;
+                btnEncender.Text = "Encender";
+            }
+            
         }
 
         private void tmrReloj_Tick(object sender, EventArgs e)

@@ -33,11 +33,11 @@
             this.lblReloj = new System.Windows.Forms.Label();
             this.lblFecha = new System.Windows.Forms.Label();
             this.lblEjecucion = new System.Windows.Forms.Label();
+            this.btnEncender = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // tmrReloj
             // 
-            this.tmrReloj.Enabled = true;
             this.tmrReloj.Interval = 1000;
             this.tmrReloj.Tick += new System.EventHandler(this.tmrReloj_Tick);
             // 
@@ -70,11 +70,22 @@
             this.lblEjecucion.TabIndex = 2;
             this.lblEjecucion.Text = "Tiempo en Ejecucion: 0";
             // 
+            // btnEncender
+            // 
+            this.btnEncender.Location = new System.Drawing.Point(634, 229);
+            this.btnEncender.Name = "btnEncender";
+            this.btnEncender.Size = new System.Drawing.Size(94, 35);
+            this.btnEncender.TabIndex = 3;
+            this.btnEncender.Text = "Enceder";
+            this.btnEncender.UseVisualStyleBackColor = true;
+            this.btnEncender.Click += new System.EventHandler(this.btnEncender_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(740, 276);
+            this.Controls.Add(this.btnEncender);
             this.Controls.Add(this.lblEjecucion);
             this.Controls.Add(this.lblFecha);
             this.Controls.Add(this.lblReloj);
@@ -91,6 +102,7 @@
         private System.Windows.Forms.Label lblReloj;
         private System.Windows.Forms.Label lblFecha;
         private System.Windows.Forms.Label lblEjecucion;
+        private System.Windows.Forms.Button btnEncender;
     }
 }
 
