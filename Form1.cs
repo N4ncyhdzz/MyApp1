@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 namespace MyApp
 {
+   
     public partial class Form1 : Form
     {
         DateTime tiempo;
@@ -23,7 +24,8 @@ namespace MyApp
             lblReloj.Text = DateTime.Now.ToLongTimeString();
             if (DateTime.Now.ToLongTimeString() == tiempo.ToLongTimeString())
             {
-                Console.Beep(1000,200);
+                axWindowsMediaPlayer1.URL = @"C:\Users\Jose Luis\Downloads\gallo.mp3";
+                axWindowsMediaPlayer1.Ctlcontrols.play();
             }
 
         }
