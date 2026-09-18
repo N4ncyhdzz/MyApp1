@@ -12,22 +12,24 @@ namespace MyApp
 {
     public partial class Form1 : Form
     {
-        bool save=false;
+        bool save = false;
         string path;
- 
+
         public Form1()
         {
             InitializeComponent();
+            guardarToolStripMenuItem.Enabled = false; // hace q inicie desactivado el botón de guardar
         }
 
         private void abrirToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (ofpAbrir.ShowDialog() == DialogResult.OK) 
+            if (ofpAbrir.ShowDialog() == DialogResult.OK)
             {
                 path = ofpAbrir.FileName;
-                save = true;
-                rctTexto.LoadFile(ofpAbrir.FileName,RichTextBoxStreamType.PlainText);
-                guardarToolStripMenuItem.Enabled = false;
+                save = true; // Permite que el autoguardado funcione en este archivo abierto :)
+                rctTexto.LoadFile(path, RichTextBoxStreamType.PlainText);
+                guardarToolStripMenuItem.Enabled = false; // Se deshabilita al abrir un archivo, ya que no hay cambios pendientes
+                lblStatus.Text = ""; // Limpia el status al abrir
             }
         }
 
@@ -35,20 +37,19 @@ namespace MyApp
         {
             if (save == false)
             {
-                if (sfdGuardar.ShowDialog() == DialogResult.OK) 
+                if (sfdGuardar.ShowDialog() == DialogResult.OK)
                 {
-                    path=sfdGuardar.FileName;
-                    save = true;                    
+                    path = sfdGuardar.FileName;
+                    save = true;
                 }
-
+                else
+                {
+                    return; // Si el usuario cancela, no hace nadota
+                }
             }
-            rctTexto.SaveFile(path,RichTextBoxStreamType.PlainText);
-            guardarToolStripMenuItem.Enabled = false;
-        }
 
-        private void rctTexto_TextChanged(object sender, EventArgs e)
-        {
-            guardarToolStripMenuItem.Enabled = true;
+            rctTexto.SaveFile(path, RichTextBoxStreamType.PlainText);
+            guardarToolStripMenuItem.Enabled = false; // Se deshabilita al guardar 
         }
 
         private void guardarComoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -56,9 +57,9 @@ namespace MyApp
             if (sfdGuardar.ShowDialog() == DialogResult.OK)
             {
                 path = sfdGuardar.FileName;
-                rctTexto.SaveFile(path,RichTextBoxStreamType.PlainText);
-                guardarToolStripMenuItem.Enabled = true;
-                save=true;
+                rctTexto.SaveFile(path, RichTextBoxStreamType.PlainText);
+                guardarToolStripMenuItem.Enabled = false; // Se deshabilita al guardar
+                save = true;
             }
         }
 
@@ -68,7 +69,8 @@ namespace MyApp
             rctTexto.Focus();
             path = "";
             save = false;
-            //guardarToolStripMenuItem.Enabled = true; Se puede omitir por el textchange
+            guardarToolStripMenuItem.Enabled = false;
+            lblStatus.Text = ""; // Limpiamos el status al crear un archivo nuevo
         }
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
@@ -76,9 +78,26 @@ namespace MyApp
             this.Close();
         }
 
+        private void rctTexto_TextChanged(object sender, EventArgs e)
+        {
+            guardarToolStripMenuItem.Enabled = true; 
+            lblStatus.Text = ""; // limpia el label cuando empiezas a escribir de nuevo
+        }
+
+        private void tmrAutoguardado_Tick(object sender, EventArgs e)
+        {
+            // Si hay un archivo abierto tmb autoguarda cada 30 segundos
+            if (save == true && !String.IsNullOrEmpty(path))
+            {
+                rctTexto.SaveFile(path, RichTextBoxStreamType.PlainText);
+                guardarToolStripMenuItem.Enabled = false; // Vuelve a desactivar la opción en el menú
+                lblStatus.Text = "Archivo guardado"; // Muestra el aviso
+            }
+        }
+
         private void toolStripStatusLabel1_Click(object sender, EventArgs e)
         {
-
+            
         }
     }
 }
