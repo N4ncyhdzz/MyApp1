@@ -9,3 +9,13 @@ C:\Users\Jose Luis\source\repos\MyApp\MyApp\obj\Debug\MyApp.csproj.CoreCompileIn
 C:\Users\Jose Luis\source\repos\MyApp\MyApp\obj\Debug\MyApp.exe
 C:\Users\Jose Luis\source\repos\MyApp\MyApp\obj\Debug\MyApp.pdb
 C:\Users\Jose Luis\source\repos\MyApp\MyApp\obj\Debug\MyApp.exe.config
+C:\app\MyApp\bin\Debug\MyApp.exe.config
+C:\app\MyApp\bin\Debug\MyApp.exe
+C:\app\MyApp\bin\Debug\MyApp.pdb
+C:\app\MyApp\obj\Debug\MyApp.csproj.AssemblyReference.cache
+C:\app\MyApp\obj\Debug\MyApp.Form1.resources
+C:\app\MyApp\obj\Debug\MyApp.Properties.Resources.resources
+C:\app\MyApp\obj\Debug\MyApp.csproj.GenerateResource.cache
+C:\app\MyApp\obj\Debug\MyApp.csproj.CoreCompileInputs.cache
+C:\app\MyApp\obj\Debug\MyApp.exe
+C:\app\MyApp\obj\Debug\MyApp.pdb

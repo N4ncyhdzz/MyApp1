@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.btnAgregar = new System.Windows.Forms.Button();
+            this.mtbTelefono = new System.Windows.Forms.MaskedTextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.dgvInformacion = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtNombre = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.mtbTelefono = new System.Windows.Forms.MaskedTextBox();
-            this.btnAgregar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -49,6 +49,7 @@
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -63,9 +64,56 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.dgvInformacion);
-            this.splitContainer1.Size = new System.Drawing.Size(959, 449);
-            this.splitContainer1.SplitterDistance = 84;
+            this.splitContainer1.Size = new System.Drawing.Size(852, 359);
+            this.splitContainer1.SplitterDistance = 67;
+            this.splitContainer1.SplitterWidth = 3;
             this.splitContainer1.TabIndex = 1;
+            // 
+            // btnAgregar
+            // 
+            this.btnAgregar.Location = new System.Drawing.Point(567, 18);
+            this.btnAgregar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(143, 29);
+            this.btnAgregar.TabIndex = 4;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            // 
+            // mtbTelefono
+            // 
+            this.mtbTelefono.Location = new System.Drawing.Point(332, 26);
+            this.mtbTelefono.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.mtbTelefono.Mask = "(999)000-0000";
+            this.mtbTelefono.Name = "mtbTelefono";
+            this.mtbTelefono.Size = new System.Drawing.Size(194, 22);
+            this.mtbTelefono.TabIndex = 3;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(328, 7);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(61, 16);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Telefono";
+            // 
+            // txtNombre
+            // 
+            this.txtNombre.Location = new System.Drawing.Point(14, 26);
+            this.txtNombre.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(284, 22);
+            this.txtNombre.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(11, 7);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(56, 16);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Nombre";
             // 
             // dgvInformacion
             // 
@@ -78,11 +126,12 @@
             this.Column3});
             this.dgvInformacion.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvInformacion.Location = new System.Drawing.Point(0, 0);
+            this.dgvInformacion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvInformacion.Name = "dgvInformacion";
             this.dgvInformacion.ReadOnly = true;
             this.dgvInformacion.RowHeadersWidth = 62;
             this.dgvInformacion.RowTemplate.Height = 28;
-            this.dgvInformacion.Size = new System.Drawing.Size(959, 361);
+            this.dgvInformacion.Size = new System.Drawing.Size(852, 289);
             this.dgvInformacion.TabIndex = 0;
             // 
             // Column1
@@ -109,57 +158,16 @@
             this.Column3.ReadOnly = true;
             this.Column3.Width = 150;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 20);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Nombre";
-            // 
-            // txtNombre
-            // 
-            this.txtNombre.Location = new System.Drawing.Point(16, 32);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(319, 26);
-            this.txtNombre.TabIndex = 1;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(369, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(71, 20);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Telefono";
-            // 
-            // mtbTelefono
-            // 
-            this.mtbTelefono.Location = new System.Drawing.Point(373, 32);
-            this.mtbTelefono.Mask = "(999)000-0000";
-            this.mtbTelefono.Name = "mtbTelefono";
-            this.mtbTelefono.Size = new System.Drawing.Size(218, 26);
-            this.mtbTelefono.TabIndex = 3;
-            // 
-            // btnAgregar
-            // 
-            this.btnAgregar.Location = new System.Drawing.Point(638, 22);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(161, 36);
-            this.btnAgregar.TabIndex = 4;
-            this.btnAgregar.Text = "Agregar";
-            this.btnAgregar.UseVisualStyleBackColor = true;
-            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
-            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(959, 449);
+            this.ClientSize = new System.Drawing.Size(852, 359);
             this.Controls.Add(this.splitContainer1);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
             this.Text = "Mi primer App";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
