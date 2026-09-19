@@ -42,7 +42,6 @@
             this.sfdGuardar = new System.Windows.Forms.SaveFileDialog();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.lblStatus = new System.Windows.Forms.Label();
             this.tmrAutoguardado = new System.Windows.Forms.Timer(this.components);
             this.mnuPrincipal.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -56,7 +55,7 @@
             this.mnuPrincipal.Location = new System.Drawing.Point(0, 0);
             this.mnuPrincipal.Name = "mnuPrincipal";
             this.mnuPrincipal.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.mnuPrincipal.Size = new System.Drawing.Size(711, 28);
+            this.mnuPrincipal.Size = new System.Drawing.Size(711, 30);
             this.mnuPrincipal.TabIndex = 0;
             this.mnuPrincipal.Text = "menuStrip1";
             // 
@@ -116,10 +115,10 @@
             // rctTexto
             // 
             this.rctTexto.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rctTexto.Location = new System.Drawing.Point(0, 28);
+            this.rctTexto.Location = new System.Drawing.Point(0, 30);
             this.rctTexto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rctTexto.Name = "rctTexto";
-            this.rctTexto.Size = new System.Drawing.Size(711, 332);
+            this.rctTexto.Size = new System.Drawing.Size(711, 330);
             this.rctTexto.TabIndex = 1;
             this.rctTexto.Text = "";
             this.rctTexto.TextChanged += new System.EventHandler(this.rctTexto_TextChanged);
@@ -137,10 +136,10 @@
             this.statusStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 338);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 336);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 12, 0);
-            this.statusStrip1.Size = new System.Drawing.Size(711, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(711, 24);
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -149,19 +148,10 @@
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(0, 16);
             // 
-            // lblStatus
-            // 
-            this.lblStatus.AutoSize = true;
-            this.lblStatus.Location = new System.Drawing.Point(526, 9);
-            this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(44, 16);
-            this.lblStatus.TabIndex = 3;
-            this.lblStatus.Text = "Status";
-            // 
             // tmrAutoguardado
             // 
             this.tmrAutoguardado.Enabled = true;
-            this.tmrAutoguardado.Interval = 30000;
+            this.tmrAutoguardado.Interval = 10000;
             this.tmrAutoguardado.Tick += new System.EventHandler(this.tmrAutoguardado_Tick);
             // 
             // Form1
@@ -169,7 +159,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(711, 360);
-            this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.rctTexto);
             this.Controls.Add(this.mnuPrincipal);
@@ -201,7 +190,6 @@
         private System.Windows.Forms.SaveFileDialog sfdGuardar;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
-        private System.Windows.Forms.Label lblStatus;
         private System.Windows.Forms.Timer tmrAutoguardado;
     }
 }

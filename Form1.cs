@@ -12,13 +12,13 @@ namespace MyApp
 {
     public partial class Form1 : Form
     {
-        bool save = false;
+        bool save = false; //indica si hay un archivo activo para guardar
         string path;
 
         public Form1()
         {
             InitializeComponent();
-            guardarToolStripMenuItem.Enabled = false; // hace q inicie desactivado el botón de guardar
+            guardarToolStripMenuItem.Enabled = false; // Inicia desactivado hasta que haya cambios
         }
 
         private void abrirToolStripMenuItem_Click(object sender, EventArgs e)
@@ -26,10 +26,10 @@ namespace MyApp
             if (ofpAbrir.ShowDialog() == DialogResult.OK)
             {
                 path = ofpAbrir.FileName;
-                save = true; // Permite que el autoguardado funcione en este archivo abierto :)
+                save = true; // Prendemos la bandera porque ya hay archivo activo
                 rctTexto.LoadFile(path, RichTextBoxStreamType.PlainText);
-                guardarToolStripMenuItem.Enabled = false; // Se deshabilita al abrir un archivo, ya que no hay cambios pendientes
-                lblStatus.Text = ""; // Limpia el status al abrir
+                guardarToolStripMenuItem.Enabled = false;
+               
             }
         }
 
@@ -40,16 +40,16 @@ namespace MyApp
                 if (sfdGuardar.ShowDialog() == DialogResult.OK)
                 {
                     path = sfdGuardar.FileName;
-                    save = true;
+                    save = true; // Prendemos la bandera al guardar por primera vez
                 }
                 else
                 {
-                    return; // Si el usuario cancela, no hace nadota
+                    return; // Si el usuario cancela, no hace nadota nadota jeje
                 }
             }
 
             rctTexto.SaveFile(path, RichTextBoxStreamType.PlainText);
-            guardarToolStripMenuItem.Enabled = false; // Se deshabilita al guardar 
+            guardarToolStripMenuItem.Enabled = false;
         }
 
         private void guardarComoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -58,8 +58,8 @@ namespace MyApp
             {
                 path = sfdGuardar.FileName;
                 rctTexto.SaveFile(path, RichTextBoxStreamType.PlainText);
-                guardarToolStripMenuItem.Enabled = false; // Se deshabilita al guardar
-                save = true;
+                guardarToolStripMenuItem.Enabled = false;
+                save = true; // Prendemos la bandera
             }
         }
 
@@ -68,9 +68,9 @@ namespace MyApp
             rctTexto.Clear();
             rctTexto.Focus();
             path = "";
-            save = false;
+            save = false; // Apagamos la bandera porque es un documento nuevo sin la ruta
             guardarToolStripMenuItem.Enabled = false;
-            lblStatus.Text = ""; // Limpiamos el status al crear un archivo nuevo
+           
         }
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
@@ -80,24 +80,26 @@ namespace MyApp
 
         private void rctTexto_TextChanged(object sender, EventArgs e)
         {
-            guardarToolStripMenuItem.Enabled = true; 
-            lblStatus.Text = ""; // limpia el label cuando empiezas a escribir de nuevo
+            guardarToolStripMenuItem.Enabled = true; // Se activa la opción de guardar en el menú
+            toolStripStatusLabel1.Text = "";         // Limpia el mensaje de la barra de estado
         }
 
         private void tmrAutoguardado_Tick(object sender, EventArgs e)
         {
-            // Si hay un archivo abierto tmb autoguarda cada 30 segundos
             if (save == true && !String.IsNullOrEmpty(path))
             {
+                // Guardado automático en segundo plano
                 rctTexto.SaveFile(path, RichTextBoxStreamType.PlainText);
-                guardarToolStripMenuItem.Enabled = false; // Vuelve a desactivar la opción en el menú
-                lblStatus.Text = "Archivo guardado"; // Muestra el aviso
+                guardarToolStripMenuItem.Enabled = false;
+
+                // Muestra el mensaje en tu StatusStrip
+                toolStripStatusLabel1.Text = "Archivo guardado";
             }
         }
 
         private void toolStripStatusLabel1_Click(object sender, EventArgs e)
         {
-            
+          
         }
     }
 }
