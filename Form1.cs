@@ -12,9 +12,20 @@ namespace MyApp
 {
     public partial class Form1 : Form
     {
+
+        List<Persona> registros = new List<Persona>();
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void btnCargar_Click(object sender, EventArgs e)
+        {
+            if (ofdCSV.ShowDialog() == DialogResult.OK) 
+            {
+                 
+            }
+
         }
     }
 }
