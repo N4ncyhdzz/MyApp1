@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CsvHelper;
+using System.Globalization;
+using System.IO;
 
 namespace MyApp
 {
@@ -23,7 +26,15 @@ namespace MyApp
         {
             if (ofdCSV.ShowDialog() == DialogResult.OK) 
             {
-                 
+                var reader = new StreamReader(ofdCSV.FileName);
+                var csv = new CsvReader(reader, CultureInfo.InvariantCulture);
+                registros = csv.GetRecords<Persona>().ToList();
+
+                foreach(var registro in registros)
+                {
+                    dgvRegistros.Rows.Add(registro.id, registro.name, registro.email);
+
+                }
             }
 
         }
