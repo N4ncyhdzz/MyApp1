@@ -32,11 +32,21 @@ namespace MyApp
 
                 foreach(var registro in registros)
                 {
-                    dgvRegistros.Rows.Add(registro.id, registro.name, registro.email);
+                    dgvRegistros.Rows.Add(registro.id, registro.name, registro.email, null, null);
 
                 }
             }
 
+        }
+
+        private void dgvRegistros_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Form2 editar = new Form2(
+                dgvRegistros.Rows[e.RowIndex].Cells[1].Value.ToString(),
+                dgvRegistros.Rows[e.RowIndex].Cells[2].Value.ToString());
+            editar.Show();
+               
+           
         }
     }
 }
