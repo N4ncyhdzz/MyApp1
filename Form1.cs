@@ -44,7 +44,13 @@ namespace MyApp
             Form2 editar = new Form2(
                 dgvRegistros.Rows[e.RowIndex].Cells[1].Value.ToString(),
                 dgvRegistros.Rows[e.RowIndex].Cells[2].Value.ToString());
-            editar.Show();
+            if(editar.ShowDialog() == DialogResult.OK)
+            {
+                string nombre = editar.ActualizaNombre;
+                string correo = editar.ActualizaCorreo;
+                dgvRegistros.Rows[e.RowIndex].Cells[1].Value = nombre;
+                dgvRegistros.Rows[e.RowIndex].Cells[2].Value = correo;
+            }
                
            
         }
